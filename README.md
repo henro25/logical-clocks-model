@@ -24,16 +24,17 @@ This project simulates a small, asynchronous distributed system with multiple vi
     git clone https://github.com/henro25/logical-clocks-model.git
     cd logical-clocks-model
     ```
-2. **Run the Simulation:**
+2. **Create Virtual Environment and Install Requirements:
+    ```bash
+    python -m venv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
+    ```
+3. **Run the Simulation:**
     ```bash
     python vm_simulation.py
     ```
-3. **Analyze Results:**
+4. **Analyze Results:**
     ```bash
     python analyze_logs.py
     ```
-
-## Dependencies
-
-1. Python 3.x (Standard libraries: socket, threading, queue, time, random)
-2. Optional: pandas, matplotlib for analysis
