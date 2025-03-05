@@ -1,3 +1,5 @@
-*.log
+vm_0.log
+vm_1.log
+vm_2.log
 venv
 __pycache__/
