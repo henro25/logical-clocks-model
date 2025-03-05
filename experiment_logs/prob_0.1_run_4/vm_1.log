@@ -1,0 +1,177 @@
+0.336	Receive	Logical Clock: 2	Queue Length: 0	From Network
+0.674	Send	Logical Clock: 3	Queue Length: 0	To VM 0
+1.010	Receive	Logical Clock: 4	Queue Length: 0	From Network
+1.349	Send	Logical Clock: 5	Queue Length: 0	To VM 0
+1.686	Receive	Logical Clock: 7	Queue Length: 0	From Network
+2.022	Internal	Logical Clock: 8	Queue Length: 0	No external communication
+2.359	Receive	Logical Clock: 10	Queue Length: 0	From Network
+2.697	Send	Logical Clock: 11	Queue Length: 0	To VM 2
+3.039	Send	Logical Clock: 12	Queue Length: 0	To VM 2
+3.382	Send All	Logical Clock: 13	Queue Length: 0	To VMs [0, 2]
+3.724	Send	Logical Clock: 14	Queue Length: 0	To VM 0
+4.066	Send	Logical Clock: 15	Queue Length: 0	To VM 0
+4.401	Receive	Logical Clock: 18	Queue Length: 1	From Network
+4.740	Receive	Logical Clock: 19	Queue Length: 1	From Network
+5.076	Receive	Logical Clock: 20	Queue Length: 1	From Network
+5.411	Receive	Logical Clock: 21	Queue Length: 1	From Network
+5.747	Receive	Logical Clock: 23	Queue Length: 0	From Network
+6.082	Receive	Logical Clock: 25	Queue Length: 0	From Network
+6.417	Receive	Logical Clock: 26	Queue Length: 0	From Network
+6.751	Receive	Logical Clock: 27	Queue Length: 1	From Network
+7.090	Receive	Logical Clock: 28	Queue Length: 0	From Network
+7.425	Receive	Logical Clock: 30	Queue Length: 0	From Network
+7.764	Receive	Logical Clock: 32	Queue Length: 0	From Network
+8.104	Send	Logical Clock: 33	Queue Length: 0	To VM 0
+8.445	Send All	Logical Clock: 34	Queue Length: 0	To VMs [0, 2]
+8.784	Internal	Logical Clock: 35	Queue Length: 0	No external communication
+9.122	Receive	Logical Clock: 38	Queue Length: 0	From Network
+9.458	Receive	Logical Clock: 39	Queue Length: 0	From Network
+9.799	Send	Logical Clock: 40	Queue Length: 0	To VM 2
+10.134	Internal	Logical Clock: 41	Queue Length: 0	No external communication
+10.471	Receive	Logical Clock: 43	Queue Length: 0	From Network
+10.806	Receive	Logical Clock: 44	Queue Length: 0	From Network
+11.144	Receive	Logical Clock: 45	Queue Length: 0	From Network
+11.484	Send	Logical Clock: 46	Queue Length: 0	To VM 2
+11.823	Send	Logical Clock: 47	Queue Length: 0	To VM 2
+12.165	Send	Logical Clock: 48	Queue Length: 0	To VM 2
+12.508	Send All	Logical Clock: 49	Queue Length: 0	To VMs [0, 2]
+12.848	Send	Logical Clock: 50	Queue Length: 0	To VM 2
+13.189	Send	Logical Clock: 51	Queue Length: 0	To VM 0
+13.534	Send All	Logical Clock: 52	Queue Length: 0	To VMs [0, 2]
+13.871	Send	Logical Clock: 53	Queue Length: 0	To VM 0
+14.209	Receive	Logical Clock: 58	Queue Length: 0	From Network
+14.544	Receive	Logical Clock: 59	Queue Length: 0	From Network
+14.887	Send	Logical Clock: 60	Queue Length: 0	To VM 2
+15.232	Send All	Logical Clock: 61	Queue Length: 0	To VMs [0, 2]
+15.571	Send	Logical Clock: 62	Queue Length: 0	To VM 2
+15.909	Send	Logical Clock: 63	Queue Length: 0	To VM 2
+16.245	Receive	Logical Clock: 66	Queue Length: 0	From Network
+16.583	Receive	Logical Clock: 68	Queue Length: 0	From Network
+16.918	Receive	Logical Clock: 69	Queue Length: 0	From Network
+17.252	Receive	Logical Clock: 70	Queue Length: 1	From Network
+17.588	Receive	Logical Clock: 71	Queue Length: 1	From Network
+17.923	Receive	Logical Clock: 72	Queue Length: 1	From Network
+18.262	Receive	Logical Clock: 73	Queue Length: 2	From Network
+18.600	Receive	Logical Clock: 74	Queue Length: 2	From Network
+18.935	Receive	Logical Clock: 75	Queue Length: 1	From Network
+19.274	Receive	Logical Clock: 76	Queue Length: 1	From Network
+19.608	Receive	Logical Clock: 78	Queue Length: 0	From Network
+19.945	Receive	Logical Clock: 81	Queue Length: 0	From Network
+20.287	Send All	Logical Clock: 82	Queue Length: 0	To VMs [0, 2]
+20.623	Internal	Logical Clock: 83	Queue Length: 0	No external communication
+20.962	Receive	Logical Clock: 85	Queue Length: 0	From Network
+21.302	Send	Logical Clock: 86	Queue Length: 0	To VM 0
+21.638	Send	Logical Clock: 87	Queue Length: 0	To VM 0
+21.979	Send	Logical Clock: 88	Queue Length: 0	To VM 0
+22.314	Receive	Logical Clock: 90	Queue Length: 0	From Network
+22.651	Receive	Logical Clock: 91	Queue Length: 0	From Network
+22.985	Receive	Logical Clock: 93	Queue Length: 0	From Network
+23.323	Receive	Logical Clock: 94	Queue Length: 0	From Network
+23.662	Receive	Logical Clock: 96	Queue Length: 0	From Network
+23.998	Send	Logical Clock: 97	Queue Length: 0	To VM 2
+24.334	Send	Logical Clock: 98	Queue Length: 0	To VM 0
+24.668	Receive	Logical Clock: 100	Queue Length: 1	From Network
+25.007	Receive	Logical Clock: 101	Queue Length: 1	From Network
+25.344	Receive	Logical Clock: 102	Queue Length: 1	From Network
+25.679	Receive	Logical Clock: 103	Queue Length: 2	From Network
+26.014	Receive	Logical Clock: 104	Queue Length: 1	From Network
+26.350	Receive	Logical Clock: 105	Queue Length: 0	From Network
+26.684	Receive	Logical Clock: 108	Queue Length: 1	From Network
+27.017	Receive	Logical Clock: 109	Queue Length: 1	From Network
+27.353	Receive	Logical Clock: 110	Queue Length: 1	From Network
+27.690	Receive	Logical Clock: 111	Queue Length: 1	From Network
+28.026	Receive	Logical Clock: 112	Queue Length: 0	From Network
+28.361	Receive	Logical Clock: 115	Queue Length: 0	From Network
+28.696	Receive	Logical Clock: 116	Queue Length: 0	From Network
+29.031	Receive	Logical Clock: 117	Queue Length: 1	From Network
+29.368	Receive	Logical Clock: 118	Queue Length: 1	From Network
+29.705	Receive	Logical Clock: 119	Queue Length: 0	From Network
+30.041	Receive	Logical Clock: 121	Queue Length: 1	From Network
+30.376	Receive	Logical Clock: 122	Queue Length: 1	From Network
+30.710	Receive	Logical Clock: 123	Queue Length: 1	From Network
+31.044	Receive	Logical Clock: 124	Queue Length: 1	From Network
+31.382	Receive	Logical Clock: 125	Queue Length: 1	From Network
+31.721	Receive	Logical Clock: 127	Queue Length: 0	From Network
+32.057	Receive	Logical Clock: 129	Queue Length: 0	From Network
+32.395	Receive	Logical Clock: 130	Queue Length: 0	From Network
+32.734	Send	Logical Clock: 131	Queue Length: 0	To VM 0
+33.072	Receive	Logical Clock: 133	Queue Length: 0	From Network
+33.408	Internal	Logical Clock: 134	Queue Length: 0	No external communication
+33.745	Internal	Logical Clock: 135	Queue Length: 0	No external communication
+34.079	Receive	Logical Clock: 137	Queue Length: 0	From Network
+34.418	Receive	Logical Clock: 139	Queue Length: 0	From Network
+34.761	Send All	Logical Clock: 140	Queue Length: 0	To VMs [0, 2]
+35.098	Send	Logical Clock: 141	Queue Length: 0	To VM 0
+35.434	Receive	Logical Clock: 143	Queue Length: 0	From Network
+35.776	Send All	Logical Clock: 144	Queue Length: 0	To VMs [0, 2]
+36.121	Send All	Logical Clock: 145	Queue Length: 0	To VMs [0, 2]
+36.456	Receive	Logical Clock: 148	Queue Length: 0	From Network
+36.798	Send	Logical Clock: 149	Queue Length: 0	To VM 0
+37.140	Send	Logical Clock: 150	Queue Length: 0	To VM 0
+37.477	Receive	Logical Clock: 152	Queue Length: 0	From Network
+37.811	Receive	Logical Clock: 153	Queue Length: 0	From Network
+38.150	Receive	Logical Clock: 154	Queue Length: 0	From Network
+38.489	Send	Logical Clock: 155	Queue Length: 0	To VM 2
+38.834	Send All	Logical Clock: 156	Queue Length: 0	To VMs [0, 2]
+39.172	Send	Logical Clock: 157	Queue Length: 0	To VM 2
+39.517	Send All	Logical Clock: 158	Queue Length: 1	To VMs [0, 2]
+39.853	Receive	Logical Clock: 161	Queue Length: 0	From Network
+40.189	Receive	Logical Clock: 163	Queue Length: 0	From Network
+40.527	Receive	Logical Clock: 164	Queue Length: 0	From Network
+40.862	Receive	Logical Clock: 165	Queue Length: 1	From Network
+41.200	Receive	Logical Clock: 166	Queue Length: 0	From Network
+41.539	Send	Logical Clock: 167	Queue Length: 0	To VM 2
+41.884	Send All	Logical Clock: 168	Queue Length: 0	To VMs [0, 2]
+42.223	Send All	Logical Clock: 169	Queue Length: 0	To VMs [0, 2]
+42.568	Send All	Logical Clock: 170	Queue Length: 0	To VMs [0, 2]
+42.907	Receive	Logical Clock: 174	Queue Length: 0	From Network
+43.245	Receive	Logical Clock: 175	Queue Length: 0	From Network
+43.582	Receive	Logical Clock: 176	Queue Length: 0	From Network
+43.920	Receive	Logical Clock: 177	Queue Length: 1	From Network
+44.259	Receive	Logical Clock: 178	Queue Length: 0	From Network
+44.602	Send All	Logical Clock: 179	Queue Length: 0	To VMs [0, 2]
+44.945	Send All	Logical Clock: 180	Queue Length: 0	To VMs [0, 2]
+45.287	Send All	Logical Clock: 181	Queue Length: 0	To VMs [0, 2]
+45.630	Send	Logical Clock: 182	Queue Length: 0	To VM 2
+45.964	Receive	Logical Clock: 186	Queue Length: 0	From Network
+46.302	Internal	Logical Clock: 187	Queue Length: 0	No external communication
+46.636	Receive	Logical Clock: 188	Queue Length: 0	From Network
+46.975	Receive	Logical Clock: 189	Queue Length: 0	From Network
+47.313	Receive	Logical Clock: 191	Queue Length: 0	From Network
+47.654	Send	Logical Clock: 192	Queue Length: 0	To VM 0
+47.996	Send	Logical Clock: 193	Queue Length: 0	To VM 0
+48.333	Receive	Logical Clock: 195	Queue Length: 0	From Network
+48.668	Receive	Logical Clock: 196	Queue Length: 0	From Network
+49.007	Receive	Logical Clock: 197	Queue Length: 1	From Network
+49.345	Receive	Logical Clock: 198	Queue Length: 1	From Network
+49.680	Receive	Logical Clock: 199	Queue Length: 1	From Network
+50.019	Receive	Logical Clock: 200	Queue Length: 2	From Network
+50.354	Receive	Logical Clock: 201	Queue Length: 1	From Network
+50.692	Receive	Logical Clock: 202	Queue Length: 0	From Network
+51.031	Send	Logical Clock: 203	Queue Length: 0	To VM 2
+51.369	Receive	Logical Clock: 207	Queue Length: 0	From Network
+51.708	Receive	Logical Clock: 208	Queue Length: 0	From Network
+52.045	Receive	Logical Clock: 209	Queue Length: 0	From Network
+52.379	Receive	Logical Clock: 210	Queue Length: 1	From Network
+52.713	Receive	Logical Clock: 211	Queue Length: 1	From Network
+53.052	Receive	Logical Clock: 212	Queue Length: 0	From Network
+53.390	Receive	Logical Clock: 214	Queue Length: 1	From Network
+53.727	Receive	Logical Clock: 215	Queue Length: 1	From Network
+54.061	Receive	Logical Clock: 216	Queue Length: 0	From Network
+54.397	Receive	Logical Clock: 218	Queue Length: 0	From Network
+54.735	Receive	Logical Clock: 220	Queue Length: 0	From Network
+55.074	Send All	Logical Clock: 221	Queue Length: 0	To VMs [0, 2]
+55.408	Internal	Logical Clock: 222	Queue Length: 0	No external communication
+55.745	Receive	Logical Clock: 224	Queue Length: 1	From Network
+56.080	Receive	Logical Clock: 225	Queue Length: 1	From Network
+56.417	Receive	Logical Clock: 226	Queue Length: 0	From Network
+56.756	Receive	Logical Clock: 229	Queue Length: 0	From Network
+57.090	Receive	Logical Clock: 230	Queue Length: 0	From Network
+57.425	Receive	Logical Clock: 231	Queue Length: 0	From Network
+57.759	Receive	Logical Clock: 232	Queue Length: 1	From Network
+58.095	Receive	Logical Clock: 233	Queue Length: 1	From Network
+58.430	Receive	Logical Clock: 234	Queue Length: 0	From Network
+58.766	Receive	Logical Clock: 236	Queue Length: 0	From Network
+59.103	Receive	Logical Clock: 238	Queue Length: 0	From Network
+59.442	Send	Logical Clock: 239	Queue Length: 0	To VM 2
+59.782	Send	Logical Clock: 240	Queue Length: 0	To VM 2
