@@ -77,6 +77,17 @@ In this project, we are building a simulation of a small, asynchronous distribut
 ---
 
 ## Experiment Analysis with Standard Config
+<img src="./StandardConfigAnalysisImages/run1 log clock.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run1 queue len.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run_2 log clock.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run2 queue len.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run3 log clock.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run3 queue len.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run4 log clock.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run4 queue len.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run5 log clock.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run5 queue len.png" alt="Description" width="300" />
+
 
 - **Size of the jumps in the values for the logical clocks:**  
   Upon receiving a message, the clock is updated using the maximum of its current value and the received timestamp plus one. This contributes to the larger jumps, especially if the sending VM’s clock is significantly ahead. In the experiments, we saw mean jumps ranging from about 1.0 (indicating mostly internal events or well-synchronized exchanges) to values as high as 3.81 or more. For example, in Run 1, VM 0 (with a slow clock speed of 1 tick/sec) had a mean jump of 3.81 and a maximum jump of 19, indicating that messages from faster VMs caused dramatic increases in its clock. VMs with higher clock speeds tend to have smaller jumps on average (often close to 1.0), since they progress quickly on their own. In contrast, slower VMs receive messages from faster ones that force their clocks to “jump” more to catch up on synchronization. This contributes to the phenominem of VMs that are significantly slower tend to show higher mean jumps. A maximum jump value, which in some runs is as high as 19 or 16, indicates sporadic but dramatic updates when a very high clock value is received from the faster VMs. Having more sporadic updates also contributes to how slower VMs have a much larger variance in jump sizes. 
