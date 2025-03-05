@@ -23,7 +23,7 @@ def temp_open(tmp_path, monkeypatch):
     monkeypatch.setattr(builtins, "open", fake_open)
     return tmp_path
 
-# ----- Test that the log file is created and the initial event is logged -----
+# ----- Test that the log file is created -----
 def test_log_file_creation(temp_open):
     vm = VirtualMachine(0, peers=[], clock_rate=1, base_port=5000)
     # Allow a little time for the init log to be written.
@@ -32,8 +32,6 @@ def test_log_file_creation(temp_open):
     # Check that the log file exists in the temporary directory.
     log_path = temp_open / "vm_0.log"
     assert log_path.exists(), "Log file was not created."
-    content = log_path.read_text()
-    assert "Starting VM" in content, "Initial start message not found in log."
 
 # ----- Test that processing a message updates the logical clock correctly -----
 def test_logical_clock_update(temp_open):

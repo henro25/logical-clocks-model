@@ -5,7 +5,7 @@ import time
 import random
 
 class VirtualMachine:
-    def __init__(self, vm_id, peers, clock_rate, base_port):
+    def __init__(self, vm_id, peers, clock_rate, base_port, internal_prob=0.7):
         self.vm_id = vm_id
         self.logical_clock = 0
         self.clock_rate = clock_rate
@@ -14,6 +14,7 @@ class VirtualMachine:
         self.base_port = base_port
         self.start_time = time.time()
         self.queue = queue.Queue()
+        self.internal_event_prob = internal_prob
         
         # Create a lock to guard logging operations.
         self.log_lock = threading.Lock()
@@ -106,45 +107,83 @@ class VirtualMachine:
                     pass
 
             # Otherwise, perform a random event.
-            event = random.randint(1, 10)
-            if event == 1:
+            # event = random.randint(1, 10)
+            # if event == 1:
+            #     # Send to first peer.
+            #     if len(self.peers) >= 1:
+            #         self.logical_clock += 1
+            #         current_timestamp = self.logical_clock
+            #         self.send_message(self.peers[0], current_timestamp)
+            #         self.log_event("Send", f"To VM {self.peers[0]}")
+            # elif event == 2:
+            #     # Send to second peer.
+            #     if len(self.peers) >= 2:
+            #         self.logical_clock += 1
+            #         current_timestamp = self.logical_clock
+            #         self.send_message(self.peers[1], current_timestamp)
+            #         self.log_event("Send", f"To VM {self.peers[1]}")
+            # elif event == 3:
+            #     # Send to all peers as one event.
+            #     self.logical_clock += 1
+            #     current_timestamp = self.logical_clock
+            #     for peer in self.peers:
+            #         self.send_message(peer, current_timestamp)
+            #     self.log_event("Send All", f"To VMs {self.peers}")
+            # else:
+            #     # Internal event.
+            #     self.logical_clock += 1
+            #     self.log_event("Internal", "No external communication")
+            # event generation for smaller internal probabilities
+            r = random.random()
+            p_internal = self.internal_event_prob
+            p_send_each = (1 - p_internal) / 3
+
+            if r < p_internal:
+                # Internal event.
+                self.logical_clock += 1
+                self.log_event("Internal", "No external communication")
+            elif r < p_internal + p_send_each:
                 # Send to first peer.
                 if len(self.peers) >= 1:
                     self.logical_clock += 1
                     current_timestamp = self.logical_clock
                     self.send_message(self.peers[0], current_timestamp)
                     self.log_event("Send", f"To VM {self.peers[0]}")
-            elif event == 2:
+                else:
+                    # Fallback: internal event.
+                    self.logical_clock += 1
+                    self.log_event("Internal", "Fallback event")
+            elif r < p_internal + 2 * p_send_each:
                 # Send to second peer.
                 if len(self.peers) >= 2:
                     self.logical_clock += 1
                     current_timestamp = self.logical_clock
                     self.send_message(self.peers[1], current_timestamp)
                     self.log_event("Send", f"To VM {self.peers[1]}")
-            elif event == 3:
-                # Send to all peers as one event.
+                else:
+                    # Fallback: internal event.
+                    self.logical_clock += 1
+                    self.log_event("Internal", "Fallback event")
+            else:
+                # Send to all peers.
                 self.logical_clock += 1
                 current_timestamp = self.logical_clock
                 for peer in self.peers:
                     self.send_message(peer, current_timestamp)
                 self.log_event("Send All", f"To VMs {self.peers}")
-            else:
-                # Internal event.
-                self.logical_clock += 1
-                self.log_event("Internal", "No external communication")
 
     def stop(self):
         self.running = False
         self.server_socket.close()
         self.log_file.close()
 
-def start_virtual_machines(num_vms, base_port):
+def start_virtual_machines(num_vms, base_port, internal_prob=0.7):
     vms = []
     # Generate unique clock speeds (distinct integers between 1 and 6)
     available_speeds = random.sample(range(1, 7), num_vms)
     for i in range(num_vms):
         peers = [j for j in range(num_vms) if j != i]  # All other VM IDs.
-        vm = VirtualMachine(i, peers, available_speeds[i], base_port)
+        vm = VirtualMachine(i, peers, available_speeds[i], base_port, internal_prob=internal_prob)
         vms.append(vm)
         threading.Thread(target=vm.run, daemon=True).start()
     return vms
