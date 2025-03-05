@@ -13,9 +13,16 @@ This project simulates a small, asynchronous distributed system with multiple vi
 ## Project Structure
 
 - **`vm_simulation.py`**: Implements the VM class, initialization, and simulation loop.
-- **`analyze_logs.py`**: Script to process and visualize log data.
-- **`logs/`**: Directory for generated log files.
+- **`analyze_logs.py`**: Script to process, visualize and summarize log data for multiple runs.
+- **`experiment_logs/`**: Directory for generated experiment log files.
+- **`StandardConfigAnalysisImages/`**: Directory for generated analysis images for logs of runs under standard configurations.
+- **`LogicalClockAnalysisImages/`**: Directory for generated analysis images for logs of runs under smaller internal probability experiments.
 - **`notebook.md`**: Our engineering notebook that contains project overview, design decisions, and hypotheses.
+- **`internal_prob_analysis.py`**: Script to process, visualize and summarize experiments ran on different smaller internal event probabilities.
+- **`run_scale_model.py`**: Script to run baseline model multiple times.
+- **`smaller_prob_experiements.py`**: Script to run experiments over different smaller internal event probabilities.
+- **`test_vm_simulation.py`**: Tests for the VM class.
+- **`visualize_logs.py`**: Script to visualize log data for single run.
 
 ## Getting Started
 
