@@ -77,16 +77,16 @@ In this project, we are building a simulation of a small, asynchronous distribut
 ---
 
 ## Experiment Analysis with Standard Config
-<img src="./StandardConfigAnalysisImages/run1 log clock.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run1 queue len.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run_2 log clock.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run2 queue len.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run3 log clock.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run3 queue len.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run4 log clock.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run4 queue len.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run5 log clock.png" alt="Description" width="300" />
-<img src="./StandardConfigAnalysisImages/run5 queue len.png" alt="Description" width="300" />
+<img src="./StandardConfigAnalysisImages/run1 log clock.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run1 queue len.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run_2 log clock.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run2 queue len.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run3 log clock.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run3 queue len.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run4 log clock.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run4 queue len.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run5 log clock.png" alt="Description" width="400" />
+<img src="./StandardConfigAnalysisImages/run5 queue len.png" alt="Description" width="400" />
 
 
 - **Size of the jumps in the values for the logical clocks:**  
