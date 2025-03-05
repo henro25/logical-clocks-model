@@ -72,9 +72,9 @@ In this project, we are building a simulation of a small, asynchronous distribut
 ---
 
 ## Experiment Observations
-Contained in the following google doc
-https://docs.google.com/document/d/1Uo3jai-KjTx62crjMNpiCi_Mf5y8zMYdeLYI5_HZhaI/edit?usp=sharing
-All analysis images are in the github as well
+  Contained in the following google doc:
+  https://docs.google.com/document/d/1Uo3jai-KjTx62crjMNpiCi_Mf5y8zMYdeLYI5_HZhaI/edit?usp=sharing
+  \\All analysis images are in the github as well
 ---
 
 ## Experiment Analysis with Standard Config
