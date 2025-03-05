@@ -108,11 +108,15 @@ In this project, we are building a simulation of a small, asynchronous distribut
 - **Smaller and more frequent clock jumps:**  
   With a lower internal event probability, VMs send messages more often, so on average more updates happen. In runs with, for example, p_internal=0.1 or 0.2, the slower VMs are forced to catch up more frequently. This results in smaller average clock jumps and smaller maximum jumps compared to configurations with a higher internal event probability (such as the baseline p_internal=0.7), since the "time" elasped between sending messages from faster VMs is smaller when we have a smaller internal probability than when the probability is higher and most events are internal and the clock only increments by 1.
   ![ Alt Text](./LogicalClockAnalysisImages/Aggregated_Mean_Clock_Jump.png)
+  ![ Alt Text](./LogicalClockAnalysisImages/Aggregated_Max_Clock_Jump.png)
 
 - **Drift behavior:**
   We observe that at small, 0.1 and 0.2, internal event probability, the drift metrics (both average and maximum) tend to be higher than at some mid-range probabilities. The drift values drop and then rise again across the probabilities (0.3–0.6), and at p_internal=0.7, the system exhibits smaller average and maximum drift compared to lower probabilities. Overall, it seems to follow that smaller internal event probabilities lead to larger drifts. This is most likely due to when internal event probability is small, a slow VM can be inundated by messages from faster peers. The slow VM will then have a huge backlog on its queue and will have to continue to process messages that are not recent. Therefore, although the slow VM ends up performing more updates, the updates are further and further back in "time" relative to system time as the sytem progresses. 
+  ![ Alt Text](./LogicalClockAnalysisImages/Aggregated_Avg_Drift.png)
+  ![ Alt Text](./LogicalClockAnalysisImages/Aggregated_Max_Drift.png)
 
 - **Longer message queue lengths:**
   We first observe high queue length at very low p_internal (0.1 or 0.2). As p_internal grows, fewer external messages are generated, so the queue length drops. By p_internal=0.7, the average queue length is near 1. A smaller internal probability means each VM sends messages more often, increasing the overall message volume. If some VMs are slower (or if the random event scheduling bunches messages), large queues form. In contrast, a larger internal probability means fewer sends, reducing the chance of backlogs.
+  ![ Alt Text](./LogicalClockAnalysisImages/Aggregated_Avg_Queue_Length.png)
 
 *This notebook will be updated as the project evolves, with further experiments and analysis results to follow.*
