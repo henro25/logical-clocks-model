@@ -224,6 +224,71 @@ def analyze_clock_drift_interp(vm_logs, num_points=200):
             plt.title(f"Drift between VM {vm_i} and VM {vm_j}")
             plt.grid(True)
             plt.show()
+def analyze_drift(vm_logs, num_points=200, termination_fraction=0.1):
+    """
+    Interpolates the logical clock values for each VM onto a common time grid and computes:
+      - Overall average and maximum drift: mean and max of all pairwise absolute differences.
+      - Terminating drift: average and maximum drift computed over the final termination_fraction of the timeline.
+    Also, saves individual drift plots for each VM pair.
+    Returns a dictionary with keys:
+      'avg_drift', 'max_drift', 'term_avg_drift', 'term_max_drift'.
+    """
+    # Gather overall time bounds.
+    all_times = []
+    for df in vm_logs.values():
+        all_times.extend(df["elapsed"].values)
+    if not all_times:
+        return {"avg_drift": None, "max_drift": None, "term_avg_drift": None, "term_max_drift": None}
+    common_start = min(all_times)
+    common_end = max(all_times)
+    common_times = np.linspace(common_start, common_end, num_points)
+    
+    # Interpolate logical clocks.
+    interpolated = {}
+    for vm_id, df in vm_logs.items():
+        df_sorted = df.sort_values("elapsed")
+        interp_values = np.interp(common_times, df_sorted["elapsed"].values, df_sorted["logical_clock"].values)
+        interpolated[vm_id] = interp_values
+
+    # Compute pairwise drift for each pair.
+    vm_ids = list(interpolated.keys())
+    drift_values = []
+    for i in range(len(vm_ids)):
+        for j in range(i+1, len(vm_ids)):
+            diff = np.abs(interpolated[vm_ids[i]] - interpolated[vm_ids[j]])
+            drift_values.append(diff)
+            # Save individual drift plot.
+            fig, ax = plt.subplots(figsize=(10,4))
+            ax.plot(common_times, diff, marker="o", linestyle="-")
+            ax.set_xlabel("Elapsed Time (s)")
+            ax.set_ylabel("Drift (Absolute Difference)")
+            ax.set_title(f"Drift between VM {vm_ids[i]} and VM {vm_ids[j]}")
+            ax.grid(True)
+            plt.show()
+    if drift_values:
+        all_drift = np.vstack(drift_values)
+        overall_avg_drift = np.mean(all_drift)
+        overall_max_drift = np.max(all_drift)
+    else:
+        overall_avg_drift, overall_max_drift = 0, 0
+
+    # Determine termination phase indices.
+    term_start_index = int((1 - termination_fraction) * num_points)
+    term_drift_values = []
+    for diff in drift_values:
+        term_diff = diff[term_start_index:]
+        term_drift_values.append(term_diff)
+    if term_drift_values:
+        all_term_drift = np.vstack(term_drift_values)
+        term_avg_drift = np.mean(all_term_drift)
+        term_max_drift = np.max(all_term_drift)
+    else:
+        term_avg_drift, term_max_drift = 0, 0
+
+    return {"avg_drift": overall_avg_drift, 
+            "max_drift": overall_max_drift, 
+            "term_avg_drift": term_avg_drift, 
+            "term_max_drift": term_max_drift}
 
 
 def analyze_queue_vs_jumps(vm_logs):
@@ -251,10 +316,11 @@ def analyze_queue_vs_jumps(vm_logs):
 def main():
     # Specify the run directory you want to analyze.
     run_directory = input("Enter the run directory to analyze (e.g., run_1): ").strip()
-    if not os.path.isdir(run_directory):
-        print(f"Directory {run_directory} does not exist.")
+    base_directory = os.path.join(os.getcwd(), "experiment_logs/", run_directory)
+    if not os.path.isdir(base_directory):
+        print(f"Directory {base_directory} does not exist.")
         return
-    vm_logs = load_run_data(run_directory)
+    vm_logs = load_run_data(base_directory)
     if not vm_logs:
         print("No log data found.")
         return
@@ -263,6 +329,11 @@ def main():
     analyze_clock_jumps(vm_logs)
     # Analyze clock drift across VMs.
     analyze_clock_drift_interp(vm_logs)
+    drift_results = analyze_drift(vm_logs)
+    print("Overall Drift:")
+    print(f"Avg drift: {drift_results['avg_drift']:.2f}, Max drift: {drift_results['max_drift']:.2f}")
+    print("Terminating Drift (last 10%):")
+    print(f"Avg terminating drift: {drift_results['term_avg_drift']:.2f}, Max terminating drift: {drift_results['term_max_drift']:.2f}")
     # Analyze impact of queue length on clock jumps.
     analyze_queue_vs_jumps(vm_logs)
 
