@@ -26,7 +26,7 @@ def run_simulation(run_id, num_vms=3, run_time=60):
     
     # Move each unique log file into the run directory.
     for vm_id in range(num_vms):
-        log_filename = f"vm_{vm_id}_{base_port}.log"
+        log_filename = f"vm_{vm_id}.log"
         if os.path.exists(log_filename):
             os.rename(log_filename, os.path.join(dir_name, log_filename))
     
@@ -34,14 +34,8 @@ def run_simulation(run_id, num_vms=3, run_time=60):
 
 def main():
     num_runs = 5
-    threads = []
     for run_id in range(1, num_runs + 1):
-        t = threading.Thread(target=run_simulation, args=(run_id, 3, 5))
-        threads.append(t)
-        t.start()
-
-    for t in threads:
-        t.join()
+        run_simulation(run_id)
 
 if __name__ == "__main__":
     main()

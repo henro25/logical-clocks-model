@@ -69,6 +69,9 @@ In this project, we are building a simulation of a small, asynchronous distribut
   - How independent processes can maintain causality without a global clock.
   - The trade-offs between event ordering precision and system performance in asynchronous networks.
 
+- **Experiment Observations**
+
+
 ---
 
 *This notebook will be updated as the project evolves, with further experiments and analysis results to follow.*

@@ -11,6 +11,7 @@ class VirtualMachine:
         self.clock_rate = clock_rate
         self.peers = peers  # List of peer VM IDs
         self.running = True
+        self.base_port = base_port
         self.start_time = time.time()
         self.queue = queue.Queue()
         
@@ -27,9 +28,10 @@ class VirtualMachine:
         self.log_file = open(f"vm_{vm_id}.log", "w")
         
         # Log and print the clock speed.
-        init_msg = f"Starting VM {vm_id} with clock speed: {self.clock_rate} ticks/sec"
+        init_msg = f"Starting VM {vm_id} with clock speed: {self.clock_rate} ticks/sec\n"
         print(init_msg)
-        self.log_event("Init\t", init_msg)
+        # comment out logging init to prevent data race
+        # self.log_event("Init\t", init_msg)
         
         # Start a thread to accept incoming TCP connections.
         self.server_thread = threading.Thread(target=self.server_loop, daemon=True)
@@ -42,7 +44,9 @@ class VirtualMachine:
                 return
             try:
                 elapsed = time.time() - self.start_time
-                log_entry = f"{elapsed:.3f}\t{event_type}\tLogical Clock: {self.logical_clock}\t{details}\n"
+                queue_length = self.queue.qsize()
+                # Log the elapsed time, event type, logical clock, current queue length, and additional details.
+                log_entry = f"{elapsed:.3f}\t{event_type}\tLogical Clock: {self.logical_clock}\tQueue Length: {queue_length}\t{details}\n"
                 self.log_file.write(log_entry)
                 self.log_file.flush()
             except Exception:
@@ -73,13 +77,14 @@ class VirtualMachine:
     def process_message(self, received_timestamp):
         # Update the logical clock as per Lamport's rule and log the event.
         self.logical_clock = max(self.logical_clock, received_timestamp) + 1
-        self.log_event("Receive\t", "From Network")
+        self.log_event("Receive", "From Network")
 
     def send_message(self, target_vm, timestamp):
         # Create a new TCP socket for sending the message.
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.connect(("localhost", 5000 + target_vm))
+                # Connect using the same base_port as used by the server.
+                s.connect(("localhost", self.base_port + target_vm))
                 s.sendall(str(timestamp).encode())
             # Note: Logging is handled by the caller to avoid duplicate log entries.
         except Exception as e:
@@ -108,14 +113,14 @@ class VirtualMachine:
                     self.logical_clock += 1
                     current_timestamp = self.logical_clock
                     self.send_message(self.peers[0], current_timestamp)
-                    self.log_event("Send\t", f"To VM {self.peers[0]}")
+                    self.log_event("Send", f"To VM {self.peers[0]}")
             elif event == 2:
                 # Send to second peer.
                 if len(self.peers) >= 2:
                     self.logical_clock += 1
                     current_timestamp = self.logical_clock
                     self.send_message(self.peers[1], current_timestamp)
-                    self.log_event("Send\t", f"To VM {self.peers[1]}")
+                    self.log_event("Send", f"To VM {self.peers[1]}")
             elif event == 3:
                 # Send to all peers as one event.
                 self.logical_clock += 1
